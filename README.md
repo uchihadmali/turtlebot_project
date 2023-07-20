@@ -29,63 +29,39 @@ Do the followings to be able to run the system;
 
 
 ## User Guides
-### Running Real System
-- Connect your PC to the Arduino Board and upload the voltage_control.ino code.
-- Remove the connection between the 8-pin Hokuyo connector and the Hokuyo sensor.
-- Connect the blue and brown ends of the Hokuyo connector to the voltage supply. Adjust the voltage to the 5V.
-- Connect the 8-pin Hokuyo connector and the Hokuyo sensor. Make sure that the VCC and ground connections are correct.
-- Connect the USB connection of the Hokuyo sensor and the PC.
-- Open terminal and go to the workspace directory. Open different tabs and source them by the following command;
 
-`source ./devel/setup.bash`
-- Run the following commands in different terminals;
+### Instructions to Run the Simulation
 
-`roscore`
+This README provides detailed instructions to run the simulation. Follow the steps below:
 
-`rosrun rosserial_python serial_node.py /dev/ttyACM0`
+#### Step 1 - Modify File Paths
 
-`rosrun urg_node urg_node _serial_port:=/dev/ttyACM1`
+First, change the URDF and YAML file paths in the gazebo_c.cpp and gazebo_c_2.cpp files.
 
-`rosrun rviz rviz`
-- In the opened Rviz window, do the followings;
+#### Step 2 - Build Package
 
-Change "Global Options->Fixed Frame" to "map".
+In the terminal, use the command catkin_make to build your catkin workspace.
 
-Add "PointCloud2".
+#### Step 3 - Launch Simulation
 
-Change "PointCloud2->Topic" to "/output".
+Run the command roslaunch gazebo_sim create.launch to start the simulation.
 
-- Run the following commands. This will initiate the mechanism movement and data should be seen on rviz.
+Note: If your computer is slow, create.launch may not execute properly. In this case, run the commands below separately in different terminals:
 
-`rosrun hokuyo_go laser_real`
+    roscore
+    rosrun gazebo_ros gazebo
+    rosrun gazebo_sim gazebo_ros_node
+    rosrun target_finder target_finder_node_3
+    rosrun gazebo_sim gazebo_ros_node2
+    rosrun target_finder target_finder_node_2
+    rosrun navigation2 navigation_node2
+    rosrun navigation navigation_node
 
-- To stop the mechanism, disconnect the motor connections, kill all terminals and upload the voltage_control.ino code to the Arduino Board.
-### Running Simulation
-- Go to workspace directory and source several tabs.
-- Run the following command
+Expected Result
 
-`roscore`
-- Run the following command. Also you have different launch file options.
+The above commands will open Gazebo, spawning two robots and one red obstacle.
 
-`roslaunch hokuyo_plus small_house_turtle.launch`
-
-- Open Rviz.
-
-`rosrun rviz rviz`
-
-- Do the followings in rviz;
-
-Change "Global Options->Fixed Frame" to "taban".
-
-Add "PointCloud2".
-
-Change "PointCloud2->Topic" to "/output".
-
-- Run the following commands. These will start the movement and data should be visible at Rviz.
-
-`rosrun hokuyo_go laser_to_pointcloud`
-
-`rosrun hokuyo_go vel_publisher`
+The robot with the green back is the leader, while the other robot is the follower. If the code is executed properly, both robots will move towards their goal, with the follower robot tailing the leader.
 
 
 ## Developer Guides
