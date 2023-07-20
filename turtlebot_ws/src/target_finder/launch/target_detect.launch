@@ -1,0 +1,11 @@
+<launch>
+	<node name="target_finder_node" pkg="target_finder" output="screen" type="target_finder_node" >
+                <param name="low_H" type="int" value="90" />
+                <param name="high_H" type="int" value="128" />
+                <param name="low_S" type="int" value="50" />
+                <param name="high_S" type="int" value="255" />
+                <param name="low_V" type="int" value="70" />
+                <param name="high_V" type="int" value="255" />
+
+	</node>
+</launch>

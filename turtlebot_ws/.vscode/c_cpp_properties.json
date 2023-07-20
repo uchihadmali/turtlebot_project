@@ -1,0 +1,30 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/mali/turtlebot_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/mali/turtlebot_ws/src/create_robot/create_driver/include/**",
+        "/home/mali/catkin_ws/src/gazebo_pkg/include/**",
+        "/home/mali/turtlebot_ws/src/gazebo_sim/include/**",
+        "/home/mali/catkin_ws/src/geometric_transforms/include/**",
+        "/home/mali/catkin_ws/src/include_pkg/include/**",
+        "/home/mali/catkin_ws/src/offboard_path/include/**",
+        "/home/mali/catkin_ws/src/plotters/include/**",
+        "/home/mali/turtlebot_ws/src/target_finder/include/**",
+        "/home/mali/catkin_ws/src/teknofest2020/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

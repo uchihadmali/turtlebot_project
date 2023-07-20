@@ -1,0 +1,23 @@
+***HOW TO RUN***
+1-First change the urdf and yaml file paths in the gazebo_c.cpp and
+gazebo_c_2.cpp
+2-catkin_make
+3-roslaunch gazebo_sim create.launch will run the code.
+4-If your pc is slow create.launch may not work well. In that case,
+run the following commands in terminals;
+roscore
+rosrun gazebo_ros gazebo
+rosrun gazebo_sim gazebo_ros_node
+rosrun target_finder target_finder_node_3
+rosrun gazebo_sim gazebo_ros_node2
+rosrun target_finder target_finder_node_2
+rosrun navigation2 navigation_node2
+rosrun navigation navigation_node
+
+***Expected Result***
+These commands will open the gazebo and spawn 2 robots and 1 red obstacle.
+The robot with green back is leader and the other one is  follower. 
+If the code run properly, robots will move to the goal and the follower
+will follow the leader.
+
+
